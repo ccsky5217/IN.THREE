@@ -71,14 +71,6 @@ public class TeamMemberDataBaseRestlet {
         }
     }
 	
-	@POST
-    @Path("{id,vsName,groupName,memberName,memberId}")
-    @Produces("application/json")
-	public List<TeamMemberDataBase> addTeamMember(@NotNull @PathParam("id") Integer id, @PathParam("vsName") String vsName, @PathParam("groupName") String groupName, @PathParam("memberName") String memberName, @PathParam("memberId") String memberId) 
-	{
-		datalist.add(TeamMemberDataBase.Builder.newBuilder().id(id).vsName(vsName).groupName(groupName).memberName(memberName).memberId(memberId).build());
-		return datalist;
 
-    }
 	
 }
