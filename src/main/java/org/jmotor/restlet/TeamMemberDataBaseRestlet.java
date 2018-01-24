@@ -34,18 +34,24 @@ import java.util.List;
 public class TeamMemberDataBaseRestlet {
 	
     static List<TeamMemberDataBase> datalist = new ArrayList<TeamMemberDataBase>();
-	
+	static
+    {
+		datalist.add(TeamMemberDataBase.Builder.newBuilder().id(1).vsName("ISDK VStream").groupName("Flash ScreamTeam").memberName("Zhu Hui").memberId("61455265").build());
+		datalist.add(TeamMemberDataBase.Builder.newBuilder().id(2).vsName("NE3S-WS VStream").groupName("Halo ScreamTeam").memberName("Larry Liu").memberId("61465322").build());
+
+    }
+    
 
     @GET
     @Produces("application/json")
     public List<TeamMemberDataBase> getAllTeamMember() 
 	{
     	
-		//return datalist;
-        return Arrays.asList(
-                TeamMemberDataBase.Builder.newBuilder().id(1).vsName("ISDK VStream").groupName("Flash ScreamTeam").memberName("Zhu Hui").memberId("61455265").build(),
-                TeamMemberDataBase.Builder.newBuilder().id(2).vsName("NE3S-WS VStream").groupName("Halo ScreamTeam").memberName("Larry Liu").memberId("61465322").build()
-        );
+		return datalist;
+//        return Arrays.asList(
+//                TeamMemberDataBase.Builder.newBuilder().id(1).vsName("ISDK VStream").groupName("Flash ScreamTeam").memberName("Zhu Hui").memberId("61455265").build(),
+//                TeamMemberDataBase.Builder.newBuilder().id(2).vsName("NE3S-WS VStream").groupName("Halo ScreamTeam").memberName("Larry Liu").memberId("61465322").build()
+//        );
         
 
     }
@@ -68,11 +74,15 @@ public class TeamMemberDataBaseRestlet {
 	@POST
     @Path("add")
     @Produces("application/json")
-	public List<TeamMemberDataBase> addTeamMember(@NotNull @PathParam("id") Integer id, @PathParam("vsName") String vsName, @PathParam("groupName") String groupName, @PathParam("memberName") String memberName, @PathParam("memberId") String memberId) 
+	public List<TeamMemberDataBase> addTeamMember(@PathParam("id") Integer id, @PathParam("vsName") String vsName, @PathParam("groupName") String groupName, @PathParam("memberName") String memberName, @PathParam("memberId") String memberId) 
 	{
+		System.out.println(id.toString());
+		System.out.println(vsName);
+		System.out.println(groupName);
+		System.out.println(memberName);
+		System.out.println(memberId);
 		datalist.add(TeamMemberDataBase.Builder.newBuilder().id(id).vsName(vsName).groupName(groupName).memberName(memberName).memberId(memberId).build());
 		return datalist;
-
     }
 	
 	
