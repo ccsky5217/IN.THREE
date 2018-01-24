@@ -47,11 +47,11 @@ public class TeamMemberDataBaseRestlet {
     public List<TeamMemberDataBase> getAllTeamMember() 
 	{
     	
-		return datalist;
-//        return Arrays.asList(
-//                TeamMemberDataBase.Builder.newBuilder().id(1).vsName("ISDK VStream").groupName("Flash ScreamTeam").memberName("Zhu Hui").memberId("61455265").build(),
-//                TeamMemberDataBase.Builder.newBuilder().id(2).vsName("NE3S-WS VStream").groupName("Halo ScreamTeam").memberName("Larry Liu").memberId("61465322").build()
-//        );
+		//return datalist;
+        return Arrays.asList(
+                TeamMemberDataBase.Builder.newBuilder().id(1).vsName("ISDK VStream").groupName("Flash ScreamTeam").memberName("Zhu Hui").memberId("61455265").build(),
+                TeamMemberDataBase.Builder.newBuilder().id(2).vsName("NE3S-WS VStream").groupName("Halo ScreamTeam").memberName("Larry Liu").memberId("61465322").build()
+        );
         
 
     }
@@ -72,7 +72,7 @@ public class TeamMemberDataBaseRestlet {
     }
 	
 	@POST
-    @Path("{id}")
+    @Path("{id,vsName,groupName,memberName,memberId}")
     @Produces("application/json")
 	public List<TeamMemberDataBase> addTeamMember(@NotNull @PathParam("id") Integer id, @PathParam("vsName") String vsName, @PathParam("groupName") String groupName, @PathParam("memberName") String memberName, @PathParam("memberId") String memberId) 
 	{
