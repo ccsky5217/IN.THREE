@@ -76,12 +76,13 @@ public class TeamMemberDataBaseRestlet {
     @Produces("application/json")
 	public List<TeamMemberDataBase> addTeamMember(@NotNull @PathParam("id") Integer id, @PathParam("vsName") String vsName, @PathParam("groupName") String groupName, @PathParam("memberName") String memberName, @PathParam("memberId") String memberId) 
 	{System.out.println("aaaaaaaaaaaa");
-		System.out.println(id.toString());
+
+		datalist.add(TeamMemberDataBase.Builder.newBuilder().id(id).vsName(vsName).groupName(groupName).memberName(memberName).memberId(memberId).build());
+				System.out.println(id);
 		System.out.println(vsName);
 		System.out.println(groupName);
 		System.out.println(memberName);
 		System.out.println(memberId);
-		datalist.add(TeamMemberDataBase.Builder.newBuilder().id(id).vsName(vsName).groupName(groupName).memberName(memberName).memberId(memberId).build());
 		return datalist;
     }
 	
