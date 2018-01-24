@@ -74,8 +74,8 @@ public class TeamMemberDataBaseRestlet {
 	@POST
     @Path("add")
     @Produces("application/json")
-	public List<TeamMemberDataBase> addTeamMember(@PathParam("id") Integer id, @PathParam("vsName") String vsName, @PathParam("groupName") String groupName, @PathParam("memberName") String memberName, @PathParam("memberId") String memberId) 
-	{
+	public List<TeamMemberDataBase> addTeamMember(@NotNull @PathParam("id") Integer id, @PathParam("vsName") String vsName, @PathParam("groupName") String groupName, @PathParam("memberName") String memberName, @PathParam("memberId") String memberId) 
+	{System.out.println("aaaaaaaaaaaa");
 		System.out.println(id.toString());
 		System.out.println(vsName);
 		System.out.println(groupName);
