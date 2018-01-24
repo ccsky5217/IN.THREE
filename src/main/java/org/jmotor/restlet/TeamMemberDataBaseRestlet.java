@@ -35,13 +35,7 @@ public class TeamMemberDataBaseRestlet {
 	
     static List<TeamMemberDataBase> datalist = new ArrayList<TeamMemberDataBase>();
 	
-    TeamMemberDataBaseRestlet()
-    {
-		datalist.add(TeamMemberDataBase.Builder.newBuilder().id(1).vsName("ISDK VStream").groupName("Flash ScreamTeam").memberName("Zhu Hui").memberId("61455265").build());
-		datalist.add(TeamMemberDataBase.Builder.newBuilder().id(2).vsName("NE3S-WS VStream").groupName("Halo ScreamTeam").memberName("Larry Liu").memberId("61465322").build());
 
-    }
-    
     @GET
     @Produces("application/json")
     public List<TeamMemberDataBase> getAllTeamMember() 
