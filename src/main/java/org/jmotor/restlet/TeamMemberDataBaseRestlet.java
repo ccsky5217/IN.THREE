@@ -14,7 +14,7 @@ import javax.ws.rs.POST;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
+import javax.ws.rs.Consumes;
 /**
  * StacksRestlet is the RestAPI interface.
  * 
@@ -74,16 +74,84 @@ public class TeamMemberDataBaseRestlet {
 	@POST
     @Path("add")
     @Produces("application/json")
-	public List<TeamMemberDataBase> addTeamMember(@NotNull @PathParam("id") Integer id, @PathParam("vsName") String vsName, @PathParam("groupName") String groupName, @PathParam("memberName") String memberName, @PathParam("memberId") String memberId) 
-	{System.out.println("aaaaaaaaaaaa");
-
+	@Consumes("application/json")
+	public List<TeamMemberDataBase> addTeamMember(TeamMemberDataBase dataBean) 
+	{
+	    Integer id;
+		String vsName;
+	    String groupName;
+	    String memberName;
+	    String memberId;
+	    
+		if (null != dataBean)
+		{
+			System.out.println("dataBean is not null");
+			
+			if(null != dataBean.getId())
+			{
+				System.out.println(dataBean.getId().toString());
+				id = dataBean.getId();
+			}
+			else
+			{
+				System.out.println("ID is null");
+			}
+			
+			if(null != dataBean.getVSName())
+			{
+				System.out.println(dataBean.getVSName());
+				vsName = dataBean.getVSName();
+			}
+			else
+			{
+				System.out.println("VSName is null");
+			}
+			
+			if(null != dataBean.getGroupName())
+			{
+				System.out.println(dataBean.getGroupName());
+				groupName = dataBean.getGroupName();
+			}
+			else
+			{
+				System.out.println("GroupName is null");
+			}
+			
+			if(null != dataBean.getMemberName())
+			{
+				System.out.println(dataBean.getMemberName());
+				memberName = dataBean.getMemberName();
+			}
+			else
+			{
+				System.out.println("MemberName is null");
+			}
+			
+			if(null != dataBean.getMemberId())
+			{
+				System.out.println(dataBean.getMemberId());
+				memberId = dataBean.getMemberId();
+			}
+			else
+			{
+				System.out.println("MemberId is null");
+			}
+			
+		}
+		else
+		{
+			System.out.println("dataBean is null");
+		}
+		
 		datalist.add(TeamMemberDataBase.Builder.newBuilder().id(id).vsName(vsName).groupName(groupName).memberName(memberName).memberId(memberId).build());
-				System.out.println(id);
-		System.out.println(vsName);
-		System.out.println(groupName);
-		System.out.println(memberName);
-		System.out.println(memberId);
+
+//		System.out.println(id);
+//		System.out.println(vsName);
+//		System.out.println(groupName);
+//		System.out.println(memberName);
+//		System.out.println(memberId);
 		return datalist;
+
     }
 	
 	
