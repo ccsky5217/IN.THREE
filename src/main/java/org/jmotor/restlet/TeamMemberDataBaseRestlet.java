@@ -77,12 +77,13 @@ public class TeamMemberDataBaseRestlet {
 	@Consumes("application/json")
 	public List<TeamMemberDataBase> addTeamMember(TeamMemberDataBase dataBean) 
 	{
+		System.out.println("aaaaaaaaaaaaaaaaaaaa");
 	    Integer id = 0;
 		String vsName = null;
 	    String groupName = null;
 	    String memberName = null;
 	    String memberId = null;
-	    
+	    System.out.println("bbbbbbbbbbbbbbbbbb");
 		if (null != dataBean)
 		{
 			System.out.println("dataBean is not null");
@@ -142,9 +143,9 @@ public class TeamMemberDataBaseRestlet {
 		{
 			System.out.println("dataBean is null");
 		}
-		
+		System.out.println("ccccccccccccccccccccccc");
 		datalist.add(TeamMemberDataBase.Builder.newBuilder().id(id).vsName(vsName).groupName(groupName).memberName(memberName).memberId(memberId).build());
-
+System.out.println("ddddddddddddddddddd");
 //		System.out.println(id);
 //		System.out.println(vsName);
 //		System.out.println(groupName);
