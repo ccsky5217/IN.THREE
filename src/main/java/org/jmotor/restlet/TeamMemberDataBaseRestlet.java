@@ -291,7 +291,7 @@ public class TeamMemberDataBaseRestlet {
     @Path("/pt2/add")
     @Produces("application/json")
 	@Consumes("application/json")
-	public void addPTTeamMember(TeamMemberDataBase dataBean) 
+	public void addPTTeamMemberInput(TeamMemberDataBase dataBean) 
 	{
 		//System.out.println("--------------Add for PT test----------");
 	    
