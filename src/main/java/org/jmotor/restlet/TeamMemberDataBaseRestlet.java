@@ -266,12 +266,12 @@ public class TeamMemberDataBaseRestlet {
     }
 	
 		@POST
-    @Path("/pt/add")
+    @Path("/pt2/add")
     @Produces("application/json")
 	@Consumes("application/json")
 	public void addPTTeamMember(TeamMemberDataBase dataBean) 
 	{
-		System.out.println("--------------Add for PT test----------");
+		//System.out.println("--------------Add for PT test----------");
 	    
 		if(null != dataBean.getId())
 		{
@@ -280,7 +280,7 @@ public class TeamMemberDataBaseRestlet {
 		
 		if(null != dataBean.getVSName())
 		{
-			System.out.println(dataBean.getVSName());
+			System.out.println("Hello " + dataBean.getVSName());
 		}
 
 		
@@ -300,6 +300,16 @@ public class TeamMemberDataBaseRestlet {
 		{
 			System.out.println(dataBean.getMemberId());
 		}
+    }
+	
+	@POST
+    @Path("/pt/add")
+    @Produces("application/json")
+	@Consumes("application/json")
+	public void addPTTeamMember(TeamMemberDataBase dataBean) 
+	{
+		//System.out.println("--------------Add for PT test----------");
+	    
 
     }
 }
