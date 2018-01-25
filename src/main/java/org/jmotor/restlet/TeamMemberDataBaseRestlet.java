@@ -48,7 +48,8 @@ public class TeamMemberDataBaseRestlet {
     @Produces("application/json")
     public List<TeamMemberDataBase> getAllTeamMember() 
 	{
-    	
+    	System.out.println("--------------Search all team members----------");
+		System.out.println("Team member number is: " + datalist.size());
 		return datalist;
 //        return Arrays.asList(
 //                TeamMemberDataBase.Builder.newBuilder().id(1).vsName("ISDK VStream").groupName("Flash ScreamTeam").memberName("Zhu Hui").memberId("61455265").build(),
@@ -63,6 +64,7 @@ public class TeamMemberDataBaseRestlet {
     @Produces("application/json")
     public TeamMemberDataBase getSinglTeamMember(@NotNull @PathParam("id") Integer id) 
 	{
+		System.out.println("--------------Search team members----------");
         switch (id) {
             case 1:
                 return TeamMemberDataBase.Builder.newBuilder().id(1).vsName("ISDK VStream").groupName("Flash ScreamTeam").memberName("Zhu Hui").memberId("61455265").build();
