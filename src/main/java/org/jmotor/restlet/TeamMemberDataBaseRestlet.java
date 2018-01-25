@@ -265,5 +265,41 @@ public class TeamMemberDataBaseRestlet {
         return datalist;
     }
 	
-	
+		@POST
+    @Path("/pt/add")
+    @Produces("application/json")
+	@Consumes("application/json")
+	public void addPTTeamMember(TeamMemberDataBase dataBean) 
+	{
+		System.out.println("--------------Add for PT test----------");
+	    
+		if(null != dataBean.getId())
+		{
+			System.out.println(dataBean.getId().toString());
+		}
+		
+		if(null != dataBean.getVSName())
+		{
+			System.out.println(dataBean.getVSName());
+		}
+
+		
+		if(null != dataBean.getGroupName())
+		{
+			System.out.println(dataBean.getGroupName());
+		}
+
+		
+		if(null != dataBean.getMemberName())
+		{
+			System.out.println(dataBean.getMemberName());
+		}
+
+		
+		if(null != dataBean.getMemberId())
+		{
+			System.out.println(dataBean.getMemberId());
+		}
+
+    }
 }
