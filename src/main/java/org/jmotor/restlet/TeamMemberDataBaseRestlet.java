@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.PUT;
 /**
  * StacksRestlet is the RestAPI interface.
  * 
@@ -75,7 +77,9 @@ public class TeamMemberDataBaseRestlet {
     @Path("add")
     @Produces("application/json")
 	@Consumes("application/json")
-	public List<TeamMemberDataBase> addTeamMember(TeamMemberDataBase dataBean) 
+	public List<TeamMemberDataBase> addTeamMember(TeamMemberDataBase 
+	
+	) 
 	{
 		System.out.println("aaaaaaaaaaaaaaaaaaaa");
 	    Integer id = 0;
@@ -145,7 +149,7 @@ public class TeamMemberDataBaseRestlet {
 		}
 		System.out.println("ccccccccccccccccccccccc");
 		datalist.add(TeamMemberDataBase.Builder.newBuilder().id(id).vsName(vsName).groupName(groupName).memberName(memberName).memberId(memberId).build());
-System.out.println("ddddddddddddddddddd");
+		System.out.println("ddddddddddddddddddd");
 //		System.out.println(id);
 //		System.out.println(vsName);
 //		System.out.println(groupName);
@@ -153,6 +157,111 @@ System.out.println("ddddddddddddddddddd");
 //		System.out.println(memberId);
 		return datalist;
 
+    }
+	
+	    @DELETE
+    @Path("/delete/{id}")
+    @Produces("application/json")
+    public List<TeamMemberDataBase> deleteTeamMember(@NotNull @PathParam("id") Integer id) {
+    	 System.out.println("--------------Delete a team member----------");
+         System.out.println("delete : id = " + id);
+         for (TeamMemberDataBase dataBean : datalist)
+         {
+        	 if(dataBean.getId() == id)
+        	 {
+        		 datalist.remove(dataBean);
+        	 }
+         }
+         
+         System.out.println("Team member number is: " + datalist.size());
+         return datalist;
+    } 
+    
+    @PUT
+    @Path("update")
+    @Produces("application/json")
+	@Consumes("application/json")
+    public List<TeamMemberDataBase> updateTeamMember(TeamMemberDataBase dataBean) 
+    {
+        //dbMap.put(user.getId(), user);  
+		System.out.println("--------------Update a new team member----------");
+	    Integer id = 0;
+		String vsName = "default";
+	    String groupName = "default";
+	    String memberName = "default";
+	    String memberId = "default";
+	    
+		if (null != dataBean)
+		{
+			System.out.println("dataBean is not null");
+			
+			if(null != dataBean.getId())
+			{
+				System.out.println(dataBean.getId().toString());
+				id = dataBean.getId();
+			}
+			else
+			{
+				System.out.println("ID is null");
+			}
+			
+			if(null != dataBean.getVSName())
+			{
+				System.out.println(dataBean.getVSName());
+				vsName = dataBean.getVSName();
+			}
+			else
+			{
+				System.out.println("VSName is null");
+			}
+			
+			if(null != dataBean.getGroupName())
+			{
+				System.out.println(dataBean.getGroupName());
+				groupName = dataBean.getGroupName();
+			}
+			else
+			{
+				System.out.println("GroupName is null");
+			}
+			
+			if(null != dataBean.getMemberName())
+			{
+				System.out.println(dataBean.getMemberName());
+				memberName = dataBean.getMemberName();
+			}
+			else
+			{
+				System.out.println("MemberName is null");
+			}
+			
+			if(null != dataBean.getMemberId())
+			{
+				System.out.println(dataBean.getMemberId());
+				memberId = dataBean.getMemberId();
+			}
+			else
+			{
+				System.out.println("MemberId is null");
+			}
+			
+		}
+		else
+		{
+			System.out.println("dataBean is null");
+		}
+		
+        for (TeamMemberDataBase datalistBean : datalist)
+        {
+	       	 if(datalistBean.getId() == id)
+	       	 {
+	       		 datalist.remove(datalistBean);
+	       		 datalist.add(TeamMemberDataBase.Builder.newBuilder().id(id).vsName(vsName).groupName(groupName).memberName(memberName).memberId(memberId).build());
+	       	 }
+        }
+		
+        System.out.println("Team member number is: " + datalist.size());
+        return datalist;
     }
 	
 	
