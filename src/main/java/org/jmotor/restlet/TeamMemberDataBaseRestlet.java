@@ -38,8 +38,8 @@ public class TeamMemberDataBaseRestlet {
     static List<TeamMemberDataBase> datalist = new ArrayList<TeamMemberDataBase>();
 	static
     {
-		datalist.add(TeamMemberDataBase.Builder.newBuilder().id(1).vsName("ISDK VStream").groupName("Flash ScreamTeam").memberName("Zhu Hui").memberId("61455265").build());
-		datalist.add(TeamMemberDataBase.Builder.newBuilder().id(2).vsName("NE3S-WS VStream").groupName("Halo ScreamTeam").memberName("Larry Liu").memberId("61465322").build());
+		datalist.add(TeamMemberDataBase.Builder.newBuilder().id(1).vsName("ISDK VStream").groupName("Flash ScreamTeam").memberName("Zhu Hui").memberId("61455265").message("Hello ISDK").build());
+		datalist.add(TeamMemberDataBase.Builder.newBuilder().id(2).vsName("NE3S-WS VStream").groupName("Halo ScreamTeam").memberName("Larry Liu").memberId("61465322").message("Hello NE3S").build());
 
     }
     
@@ -67,9 +67,9 @@ public class TeamMemberDataBaseRestlet {
 		System.out.println("--------------Search team members----------");
         switch (id) {
             case 1:
-                return TeamMemberDataBase.Builder.newBuilder().id(1).vsName("ISDK VStream").groupName("Flash ScreamTeam").memberName("Zhu Hui").memberId("61455265").build();
+                return TeamMemberDataBase.Builder.newBuilder().id(1).vsName("ISDK VStream").groupName("Flash ScreamTeam").memberName("Zhu Hui").memberId("61455265").message("Hello ISDK").build();
             case 2:
-                return TeamMemberDataBase.Builder.newBuilder().id(2).vsName("NE3S-WS VStream").groupName("Halo ScreamTeam").memberName("Larry Liu").memberId("61465322").build();
+                return TeamMemberDataBase.Builder.newBuilder().id(2).vsName("NE3S-WS VStream").groupName("Halo ScreamTeam").memberName("Larry Liu").memberId("61465322").message("Hello NE3S").build();
             default:
                 throw new WebApplicationException("NEO Hackathon I.N Team do not have the according member, id: " + id, 404);
         }
@@ -88,6 +88,7 @@ public class TeamMemberDataBaseRestlet {
 	    String groupName = null;
 	    String memberName = null;
 	    String memberId = null;
+		String message = null;
 
 		if (null != dataBean)
 		{
@@ -143,13 +144,23 @@ public class TeamMemberDataBaseRestlet {
 				System.out.println("MemberId is null");
 			}
 			
+			if(null != dataBean.getMessage())
+			{
+				System.out.println(dataBean.getMessage());
+				message = dataBean.getMessage();
+			}
+			else
+			{
+				System.out.println("message is null");
+			}
+			
 		}
 		else
 		{
 			System.out.println("dataBean is null");
 		}
 
-		datalist.add(TeamMemberDataBase.Builder.newBuilder().id(id).vsName(vsName).groupName(groupName).memberName(memberName).memberId(memberId).build());
+		datalist.add(TeamMemberDataBase.Builder.newBuilder().id(id).vsName(vsName).groupName(groupName).memberName(memberName).memberId(memberId).message(message).build());
 		System.out.println("Team member number is: " + datalist.size());
 //		System.out.println(id);
 //		System.out.println(vsName);
@@ -191,6 +202,7 @@ public class TeamMemberDataBaseRestlet {
 	    String groupName = "default";
 	    String memberName = "default";
 	    String memberId = "default";
+		String message = "default";
 	    
 		if (null != dataBean)
 		{
@@ -246,6 +258,16 @@ public class TeamMemberDataBaseRestlet {
 				System.out.println("MemberId is null");
 			}
 			
+			if(null != dataBean.getMessage())
+			{
+				System.out.println(dataBean.getMessage());
+				message = dataBean.getMessage();
+			}
+			else
+			{
+				System.out.println("message is null");
+			}
+			
 		}
 		else
 		{
@@ -257,7 +279,7 @@ public class TeamMemberDataBaseRestlet {
 	       	 if(datalistBean.getId() == id)
 	       	 {
 	       		 datalist.remove(datalistBean);
-	       		 datalist.add(TeamMemberDataBase.Builder.newBuilder().id(id).vsName(vsName).groupName(groupName).memberName(memberName).memberId(memberId).build());
+	       		 datalist.add(TeamMemberDataBase.Builder.newBuilder().id(id).vsName(vsName).groupName(groupName).memberName(memberName).memberId(memberId).message(message).build());
 	       	 }
         }
 		
@@ -299,6 +321,11 @@ public class TeamMemberDataBaseRestlet {
 		if(null != dataBean.getMemberId())
 		{
 			System.out.println(dataBean.getMemberId());
+		}
+		
+		if(null != dataBean.getMessage())
+		{
+			System.out.println(dataBean.getMessage());
 		}
     }
 	

@@ -13,6 +13,7 @@ public class TeamMemberDataBase {
     private String groupName;
     private String memberName;
     private String memberId;
+	private String message;
 
     public Integer getId() {
         return id;
@@ -54,6 +55,14 @@ public class TeamMemberDataBase {
     public void setMemberId(String memberId) {
         this.memberId = memberId;
     }
+	
+	public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
 
     public static class Builder 
 	{
@@ -62,6 +71,7 @@ public class TeamMemberDataBase {
         private String groupName;
         private String memberName;
         private String memberId;
+		private String message;
 
         public Builder id(Integer id) 
 		{
@@ -92,6 +102,12 @@ public class TeamMemberDataBase {
             this.memberId = memberId;
             return this;
         }
+		
+		public Builder message(String message) 
+		{
+            this.message = message;
+            return this;
+        }
 
         public TeamMemberDataBase build() 
 		{
@@ -101,6 +117,7 @@ public class TeamMemberDataBase {
 			teamMemberData.setGroupName(groupName);
             teamMemberData.setMemberName(memberName);
             teamMemberData.setMemberId(memberId);
+			teamMemberData.setMessage(message);
             return teamMemberData;
         }
 
