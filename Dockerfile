@@ -1,4 +1,4 @@
-FROM jamesdbloom/docker-java8-maven
+FROM maven:3-jdk-8-alpine
 
 MAINTAINER CC.SKY "hui.2.zhu@nokia-sbell.com"
 
