@@ -288,7 +288,7 @@ public class TeamMemberDataBaseRestlet {
     }
 	
 		@POST
-    @Path("/pt2/add")
+    @Path("/pt1/add")
     @Produces("application/json")
 	@Consumes("application/json")
 	public void addPTTeamMemberInput(TeamMemberDataBase dataBean) 
@@ -330,13 +330,21 @@ public class TeamMemberDataBaseRestlet {
     }
 	
 	@POST
-    @Path("/pt/add")
+    @Path("/pt2/add")
     @Produces("application/json")
 	@Consumes("application/json")
 	public void addPTTeamMember(TeamMemberDataBase dataBean) 
 	{
 		//System.out.println("--------------Add for PT test----------");
-	    
-
+    }
+	
+		@POST
+    @Path("/pt/add")
+    @Produces("application/json")
+	@Consumes("application/json")
+	public int addPTTeamMember200(TeamMemberDataBase dataBean) 
+	{
+		//System.out.println("--------------Add for PT test----------");
+		return 1;
     }
 }
