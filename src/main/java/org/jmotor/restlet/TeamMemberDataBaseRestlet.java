@@ -77,11 +77,11 @@ public class TeamMemberDataBaseRestlet {
 	@Consumes("application/json")
 	public List<TeamMemberDataBase> addTeamMember(TeamMemberDataBase dataBean) 
 	{
-	    Integer id;
-		String vsName;
-	    String groupName;
-	    String memberName;
-	    String memberId;
+	    Integer id = 0;
+		String vsName = null;
+	    String groupName = null;
+	    String memberName = null;
+	    String memberId = null;
 	    
 		if (null != dataBean)
 		{
