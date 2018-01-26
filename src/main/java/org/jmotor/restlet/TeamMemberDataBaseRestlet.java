@@ -75,6 +75,22 @@ public class TeamMemberDataBaseRestlet {
         }
     }
 	
+	@GET
+    @Path("{id}")
+    @Produces("application/json")
+    public TeamMemberDataBase getSinglTeamMemberTest1(@NotNull @PathParam("id") Integer id) 
+	{
+		return TeamMemberDataBase.Builder.newBuilder().message("Hello world!").build();
+    }
+	
+	@GET
+    @Path("{id}")
+    @Produces("application/json")
+    public String getSinglTeamMemberTest2(@NotNull @PathParam("id") Integer id) 
+	{
+        return "\"message\": \"Hello world!\"";
+    }
+	
 	@POST
     @Path("add")
     @Produces("application/json")
