@@ -14,6 +14,7 @@ RUN ["mvn", "package"]
 
 EXPOSE 707
 
-ENTRYPOINT ["/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java", "-cp", "target/lib/*:target/docker-restful-demo-1.0-SNAPSHOT.jar","org.jmotor.INmemberInfoMicroServices"]
+ENTRYPOINT ["/usr/lib/jvm/java-1.8-openjdk/bin/java", "-cp", "target/lib/*:target/docker-restful-demo-1.0-SNAPSHOT.jar","org.jmotor.INmemberInfoMicroServices"]
+#ENTRYPOINT ["/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java", "-cp", "target/lib/*:target/docker-restful-demo-1.0-SNAPSHOT.jar","org.jmotor.INmemberInfoMicroServices"]
 
 CMD ["-Djava.awt.headless=true"]
