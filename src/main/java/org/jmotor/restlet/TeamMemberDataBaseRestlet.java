@@ -59,21 +59,21 @@ public class TeamMemberDataBaseRestlet {
 
     }
 
-    @GET
-    @Path("{id}")
-    @Produces("application/json")
-    public TeamMemberDataBase getSinglTeamMember(@NotNull @PathParam("id") Integer id) 
-	{
-		System.out.println("--------------Search team members----------");
-        switch (id) {
-            case 1:
-                return TeamMemberDataBase.Builder.newBuilder().id(1).vsName("ISDK VStream").groupName("Flash ScreamTeam").memberName("Zhu Hui").memberId("61455265").message("Hello ISDK").build();
-            case 2:
-                return TeamMemberDataBase.Builder.newBuilder().id(2).vsName("NE3S-WS VStream").groupName("Halo ScreamTeam").memberName("Larry Liu").memberId("61465322").message("Hello NE3S").build();
-            default:
-                throw new WebApplicationException("NEO Hackathon I.N Team do not have the according member, id: " + id, 404);
-        }
-    }
+//    @GET
+//    @Path("{id}")
+//    @Produces("application/json")
+//    public TeamMemberDataBase getSinglTeamMember(@NotNull @PathParam("id") Integer id) 
+//	{
+//		System.out.println("--------------Search team members----------");
+//        switch (id) {
+//            case 1:
+//                return TeamMemberDataBase.Builder.newBuilder().id(1).vsName("ISDK VStream").groupName("Flash ScreamTeam").memberName("Zhu Hui").memberId("61455265").message("Hello ISDK").build();
+//            case 2:
+//                return TeamMemberDataBase.Builder.newBuilder().id(2).vsName("NE3S-WS VStream").groupName("Halo ScreamTeam").memberName("Larry Liu").memberId("61465322").message("Hello NE3S").build();
+//            default:
+//                throw new WebApplicationException("NEO Hackathon I.N Team do not have the according member, id: " + id, 404);
+//        }
+//    }
 	
 	@GET
     @Path("{id}")
@@ -84,7 +84,7 @@ public class TeamMemberDataBaseRestlet {
     }
 	
 	@GET
-    @Path("{id}")
+    @Path("/get/{id}")
     @Produces("application/json")
     public String getSinglTeamMemberTest2(@NotNull @PathParam("id") Integer id) 
 	{
